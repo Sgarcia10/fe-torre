@@ -5,3 +5,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fit-content {
   width: fit-content;
 }
+
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.4375em 0;
+}
+.mat-form-field-type-mat-select .mat-form-field-label {
+  top: 25px;
+  font-weight: 400;
+}
+
+.mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: none !important;
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+  transform: translateY(-1.29375em) scale(0.75);
+  width: 133.3333333333%;
+}

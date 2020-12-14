@@ -1,27 +1,29 @@
-<mat-card class="fit-content">
-  <form class="example-form" [formGroup]="filterForm">
-    <mat-form-field class="">
-      <input type="text"
-             placeholder="Select a language"
-             aria-label="Number"
-             matInput
-             formControlName="language"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">
-          {{language}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <mat-checkbox formControlName="remote" color="primary" class="example-margin">Only Remote</mat-checkbox>
-    <mat-form-field appearance="fill">
-      <mat-label>Type</mat-label>
-      <mat-select formControlName="type">
-        <mat-option *ngFor="let type of types" [value]="type">
-          {{type}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="primary">SEARCH</button>
-  </form>
-</mat-card>
+<div class="container">
+  <mat-card class="fit-content">
+    <form class="example-form" [formGroup]="filterForm">
+      <mat-form-field class="">
+        <input type="text"
+               placeholder="Select a language"
+               aria-label="Number"
+               matInput
+               formControlName="language"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">
+            {{language}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-checkbox formControlName="remote" color="primary" class="example-margin">Only Remote</mat-checkbox>
+      <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of types" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary">SEARCH</button>
+    </form>
+  </mat-card>
+</div>
