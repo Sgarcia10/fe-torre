@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TorreParams } from '../dtos/request/torreParams.dto';
+import { TorreService } from '../services/torre.service';
 
 @Component({
   selector: 'app-calculator',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
+  constructor(private torreService: TorreService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  jobsSearch(params: TorreParams) {
+    this.torreService.getJobs(params).subscribe((jobs) => {
+      console.log(jobs);
+    });
   }
-
 }
