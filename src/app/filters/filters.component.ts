@@ -21,7 +21,7 @@ export class FiltersComponent implements OnInit {
   constructor(public fb: FormBuilder) {
     this.filterForm = this.fb.group({
       language: new FormControl('', [Validators.required]),
-      remote: new FormControl(),
+      remote: new FormControl(false),
       type: new FormControl()
     });
     // tslint:disable-next-line: no-non-null-assertion
@@ -45,7 +45,7 @@ export class FiltersComponent implements OnInit {
     const type = this.filterForm.get('type')?.value;
     const params = new TorreParams();
     params.language = language;
-    params.remote = String(remote);
+    params.remote = remote || '';
     params.type = type ?? '';
 
     this.findJobsEvent.emit(params);
