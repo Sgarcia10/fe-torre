@@ -1,5 +1,6 @@
 <div class="container">
   <div class="title">Hi developer! look for your next salary</div>
   <app-filters (findJobsEvent)="jobsSearch($event)" ></app-filters>
-  <app-chart id="chart"></app-chart>
+  <mat-spinner *ngIf="loadingJobs" id="loader"></mat-spinner>
+  <app-chart [jobs]="jobs" *ngIf="!loadingJobs && jobs" id="chart"></app-chart>
 </div>

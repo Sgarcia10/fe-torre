@@ -47,7 +47,6 @@ export class FiltersComponent implements OnInit {
     params.language = language;
     params.remote = String(remote);
     params.type = type ?? '';
-    console.log(params);
 
     this.findJobsEvent.emit(params);
   }

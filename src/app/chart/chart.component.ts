@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { JobsResponse } from '../dtos/response/jobs.dto';
 
 @Component({
   selector: 'app-chart',
@@ -9,25 +10,29 @@ import { Chart } from 'chart.js';
 export class ChartComponent implements AfterViewInit {
   @ViewChild('barcanvas') barCanvas: ElementRef;
 
+  @Input() jobs: JobsResponse;
+
   barChart: any;
+  labels: number[];
+  data: number[];
 
   constructor() {}
 
   ngAfterViewInit() {
-    console.log(this.barCanvas);
-
-    this.barChartMethod();
+    this.data = this.jobs?.salaries.map((s) => s.total);
+    this.labels = this.jobs?.salaries.map((s) => s.amount);
+    if (this.jobs) this.barChartMethod();
   }
 
   barChartMethod() {
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
+    this.barChart = new Chart(this.barCanvas?.nativeElement, {
       type: 'line',
       data: {
-        labels: ['BJP', 'INC', 'AAP', 'CPI', 'CPI-M', 'NCP'],
+        labels: this.labels,
         datasets: [
           {
             label: '# of jobs',
-            data: [200, 50, 200, 15, 20, 34],
+            data: this.data,
             backgroundColor: ['rgba(205, 207, 57, 0.8)'],
             borderColor: ['rgba(205, 207, 57, 0.2)'],
             borderWidth: 1,
@@ -53,7 +58,7 @@ export class ChartComponent implements AfterViewInit {
               scaleLabel: {
                 display: true,
                 fontColor: 'white',
-                labelString: '$/hour',
+                labelString: 'USD$/hour',
                 fontSize: 18
               },
               ticks: {
@@ -70,24 +75,13 @@ export class ChartComponent implements AfterViewInit {
               ticks: {
                 fontColor: 'white',
                 fontSize: 14,
-                stepSize: 40,
+                stepSize: 50,
                 beginAtZero: true
               }
             }
           ]
         }
       }
-      // options: {
-      //   scales: {
-      //     yAxes: [
-      //       {
-      //         ticks: {
-      //           beginAtZero: true
-      //         }
-      //       }
-      //     ]
-      //   }
-      // }
     });
   }
 }
