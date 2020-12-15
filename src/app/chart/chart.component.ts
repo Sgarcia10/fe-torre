@@ -34,7 +34,7 @@ export class ChartComponent implements AfterViewInit {
             label: '# of jobs',
             data: this.data,
             backgroundColor: ['rgba(205, 207, 57, 0.8)'],
-            borderColor: ['rgba(205, 207, 57, 0.2)'],
+            borderColor: ['white'],
             borderWidth: 1,
             fill: true
           }
@@ -42,6 +42,10 @@ export class ChartComponent implements AfterViewInit {
       },
       options: {
         responsive: true,
+        title: {
+          display: true,
+          text: 'Custom Chart Title'
+        },
         legend: {
           labels: {
             fontColor: 'white',
@@ -59,7 +63,7 @@ export class ChartComponent implements AfterViewInit {
                 display: true,
                 fontColor: 'white',
                 labelString: 'USD$/hour',
-                fontSize: 18
+                fontSize: 15
               },
               ticks: {
                 fontColor: 'white',
@@ -75,7 +79,7 @@ export class ChartComponent implements AfterViewInit {
               ticks: {
                 fontColor: 'white',
                 fontSize: 14,
-                stepSize: 50,
+                stepSize: 500,
                 beginAtZero: true
               }
             }

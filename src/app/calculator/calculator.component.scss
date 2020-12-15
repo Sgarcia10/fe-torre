@@ -8,7 +8,8 @@
   .title {
     color: white;
     font-family: 'Padauk', sans-serif;
-    font-size: 40px;
+    font-size: 7vh;
+    line-height: 7.5vh;
     margin-bottom: 20px;
   }
 
@@ -20,5 +21,28 @@
   #loader {
     margin-top: 30px;
 
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    min-height: 100vh;
+    height: auto;
+    padding: 5px;
+    .title {
+      font-size: 4vh;
+      line-height: 4.5vh;
+      margin-bottom: 5px;
+    }
+  
+    #chart {
+      margin-top: 10px;
+      width: 100vw;
+    }
+  
+    #loader {
+      margin-top: 30px;
+  
+    }
   }
 }

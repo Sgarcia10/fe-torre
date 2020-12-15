@@ -4,3 +4,12 @@ form {
   }
 }
 
+@media (max-width: 720px) {
+  form {
+    padding: 8px;
+    * {
+      width: 100%;
+      margin: 0 0px;
+    }
+  }
+}
